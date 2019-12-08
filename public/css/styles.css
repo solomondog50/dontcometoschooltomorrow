@@ -1,0 +1,46 @@
+html{
+	background-color: #C8BFE7; 
+	font-family: arial, "Microsoft YaHei"
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;	
+}
+p{
+	background-color: #B4BACB;
+	border-radius: -5em;
+	color: #FFFFFF;
+	margin-top: 1em;
+	font-size: 50;
+	font-weight: bold;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;	
+}
+a:href{
+	color: #FFFFFF;	
+}
+h1{
+	color: #FFFFFF;
+}
+#main{
+	background-color: #B4BACB;
+	border-radius: -5em;
+	color: #FFFFFF;
+	margin-top: 1em;
+	font-size: 50;
+	font-weight: bold;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;	
+}
+#alt{
+	background-color: #B4BACB;
+	border-radius: -5em;
+	color: #FFFFFF;
+	margin-top: 1em;
+	font-size: 50;
+	font-weight: bold;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;	
+}
