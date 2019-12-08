@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Peerpal</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/styles.css">
+	        <script type = "text/JavaScript">
+         <!--
+            function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+         //-->
+      </script>
+    <!--<script scr="main.js" defer></script>-->
+	  	<link rel="icon" href="images/ico.jpg">
+	  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+	console.log(process.env.APIKEY)
+  var firebaseConfig = {
+    // config removed for public repository
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+	
+function addElement(msg) { 
+  // create a new div element 
+  var newDiv = document.createElement("div"); 
+  // and give it some content 
+  var newContent = document.createTextNode(msg); 
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);  
+
+  // add the newly created element and its content into the DOM 
+  var currentDiv = document.getElementById("div1"); 
+  document.body.insertBefore(newDiv, currentDiv); 
+	
+	var newBtn = document.createElement("input")
+	var bt = document.createTextNode("Remove")
+	newBtn.appendChild(bt)
+	document.body.insertBefore(newDiv,currentDiv)
+//	<input type="submit" id="submit" value="Submit" class="btn">
+
+}
+</script>
+  </head>  
+	
+	
+   <body onload = "JavaScript:AutoRefresh(5000);">
+    <h1>
+		<a href="../">PeerPal</a>
+	  </h1>
+	  <div id="main2">
+		  <p> Submitted Reports </p>
+	  </div>
+	 
+	  
+	  <script>
+		  // Persist data to Firebase
+		  var db = firebase.firestore();
+		  var reportCollection = db.collection("reports")
+	// On Form Submit, Grab Input Data
+		  reportCollection.get().then((reports) => {
+			  reports.forEach((report) => {
+				  addElement(report.data().message)
+				  
+			  })
+		  })
+		  
+		  
+	let buttonElement = document.querySelector("#remove")
+	//buttonElement.addEventListener("click", () => {
+	//	console.log("CLICKED")
+		
+	//})
+	
+	  </script>
+		 
+  </body>
+</html>
