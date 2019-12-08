@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Peerpal</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/styles.css">		
+    <!--<script scr="main.js" defer></script>-->
+	  	<link rel="icon" href="images/ico.jpg">
+	  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+   // removed for public repository
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+	
+
+</script>
+  </head>  
+  <body>
+    <h1>
+		<a href="../">PeerPal</a>
+	  </h1>
+	  <div id="main2">
+		  <p>
+		<textarea id="Report" name="Report" rows="5" cols="40">
+		</textarea>
+		<p>
+		<input type="submit" id="submit" value="Submit" class="btn">
+		<!--<p>-->
+		<!--<input type="reset" id="reset" value="Reset" class="btn">	-->
+		 
+	  </div>
+	  
+	  <div id="alt">
+		  	<a href="about.html">About</a>
+		  	<a href="contact.html">Contact</a>
+	  </div>
+	  
+	  <script>
+		  var db = firebase.firestore();
+		  var reportCollection = db.collection("reports")
+	// On Form Submit, Grab Input Data
+	let buttonElement = document.querySelector("#submit")
+	buttonElement.addEventListener("click", () => {
+		let reportElement = document.querySelector("#Report")
+		//alert(reportElement.value)
+		var reportMessage = reportElement.value
+		reportCollection.add({message: reportMessage})
+		
+	})
+	// Persist data to Firebase
+	  </script>
+  </body>
+</html>
